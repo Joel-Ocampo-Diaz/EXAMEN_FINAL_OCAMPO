@@ -1,118 +1,118 @@
-# Optimizador de Portafolio de Inversiones
+# 📈 Optimizador de Portafolio de Inversiones
 
-Este proyecto implementa un microservicio para optimizar un portafolio de inversiones utilizando un algoritmo de programación dinámica (problema de la mochila 0/1), junto con una interfaz web sencilla para interactuar con él.
+Un **microservicio** desarrollado en **FastAPI** que optimiza portafolios de inversión aplicando **programación dinámica** al clásico problema de la **Mochila 0/1 (Knapsack Problem)**.
+Incluye un **frontend ligero** en HTML/CSS/JavaScript que permite probar la API de manera sencilla e intuitiva.
 
-## Estructura del Proyecto
+---
+
+## 🌟 Características Principales
+
+* 🔹 **Optimización exacta** de portafolios con restricciones de capital (0/1 Knapsack).
+* 🔹 **Backend escalable** con FastAPI y soporte Docker.
+* 🔹 **Frontend ligero** y sin dependencias externas.
+* 🔹 **Documentación interactiva de la API** disponible en `/docs`.
+* 🔹 **Pruebas automatizadas** con Pytest.
+* 🔹 **Despliegue flexible**: local, servidor HTTP o contenedores.
+
+---
+
+## 🏗️ Arquitectura del Proyecto
 
 ```
 EXAMEN_FINAL_OCAMPO/
 ├── backend/
 │   ├── main.py             # Lógica del microservicio (FastAPI)
 │   ├── requirements.txt    # Dependencias de Python
-│   ├── test_main.py        # Pruebas unitarias para el backend
+│   ├── test_main.py        # Pruebas unitarias del backend
 │   └── Dockerfile          # Configuración para Docker
 ├── frontend/
-│   ├── index.html          # Interfaz de usuario (HTML)
-│   ├── style.css           # Estilos de la interfaz (CSS)
-│   └── script.js           # Lógica de la interfaz (JavaScript)
-└── README.md               # Este archivo
+│   ├── index.html          # Interfaz de usuario
+│   ├── style.css           # Estilos de la interfaz
+│   └── script.js           # Lógica del frontend
+└── README.md               # Documentación del proyecto
 ```
 
-## Requisitos
+---
 
-*   **Python 3.9+**
-*   **pip** (gestor de paquetes de Python)
-*   **Node.js y npm** (opcional, si se desea usar un servidor local para el frontend)
-*   **Docker** (opcional, para ejecutar el backend en un contenedor)
+## ⚙️ Requisitos
 
-## Despliegue y Ejecución
+* **Python 3.9+**
+* **pip** (gestor de paquetes de Python)
+* **Node.js + npm** *(opcional, servidor local frontend)*
+* **Docker** *(opcional, para contenedores)*
 
-Sigue estos pasos para poner en marcha el proyecto.
+---
 
-### 1. Backend (Microservicio)
+## 🚀 Instalación y Ejecución
 
-El microservicio está construido con FastAPI.
+### 1️⃣ Backend (FastAPI)
 
-#### A. Configuración del Entorno Virtual e Instalación de Dependencias
+#### A. Preparar entorno
 
-1.  Navega al directorio `backend`:
-    ```bash
-    cd EXAMEN_FINAL_OCAMPO/backend
-    ```
-2.  Crea un entorno virtual (si no lo has hecho ya):
-    ```bash
-    python -m venv venv
-    ```
-3.  Activa el entorno virtual:
-    *   **Windows (Command Prompt):** `venv\Scripts\activate`
-    *   **Windows (PowerShell):** `.\venv\Scripts\Activate.ps1`
-    *   **Linux/macOS:** `source venv/bin/activate`
-4.  Instala las dependencias de Python:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+cd EXAMEN_FINAL_OCAMPO/backend
+python -m venv venv
+```
 
-#### B. Ejecutar el Microservicio
+Activar entorno:
 
-Con el entorno virtual activado, ejecuta el servidor Uvicorn:
+* **Windows (CMD):** `venv\Scripts\activate`
+* **PowerShell:** `.\venv\Scripts\Activate.ps1`
+* **Linux/macOS:** `source venv/bin/activate`
+
+Instalar dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### B. Ejecutar servidor
 
 ```bash
 uvicorn main:app --reload
 ```
 
-El microservicio estará disponible en `http://127.0.0.1:8000`. Puedes acceder a la documentación interactiva de la API en `http://127.0.0.1:8000/docs`.
+* API disponible en: `http://127.0.0.1:8000`
+* Documentación interactiva: `http://127.0.0.1:8000/docs`
 
-#### C. Ejecutar Pruebas del Backend
-
-Con el entorno virtual activado y en el directorio `backend`, ejecuta:
+#### C. Ejecutar pruebas
 
 ```bash
 pytest
 ```
 
-### 2. Frontend (Interfaz Web)
+---
 
-La interfaz web es una aplicación de HTML, CSS y JavaScript puro.
+### 2️⃣ Frontend (Interfaz Web)
 
-#### A. Ejecutar la Interfaz Web
+```bash
+cd EXAMEN_FINAL_OCAMPO/frontend
+python -m http.server 8001
+```
 
-Para evitar problemas de CORS al abrir `index.html` directamente desde el navegador, se recomienda servir el frontend usando un servidor web local.
+Abrir en navegador: 👉 `http://localhost:8001`
 
-1.  Navega al directorio `frontend`:
-    ```bash
-    cd EXAMEN_FINAL_OCAMPO/frontend
-    ```
-2.  Inicia un servidor HTTP simple de Python:
-    ```bash
-    python -m http.server 8001
-    ```
-    (Si no tienes Python, puedes usar `npx http-server` si tienes Node.js, o cualquier otro servidor web local).
+*(alternativas: `npx http-server`, Apache, Nginx, etc.)*
 
-3.  Abre tu navegador y visita `http://localhost:8001`.
+---
 
-### 3. Ejecución con Docker (Solo Backend)
+### 3️⃣ Backend con Docker
 
-Si tienes Docker instalado, puedes construir y ejecutar el microservicio en un contenedor.
+```bash
+cd EXAMEN_FINAL_OCAMPO/backend
+docker build -t optimizador-backend .
+docker run -p 8000:8000 optimizador-backend
+```
 
-1.  Navega al directorio `backend`:
-    ```bash
-    cd EXAMEN_FINAL_OCAMPO/backend
-    ```
-2.  Construye la imagen Docker:
-    ```bash
-    docker build -t EXAMEN_FINAL_OCAMPO-backend .
-    ```
-3.  Ejecuta el contenedor Docker:
-    ```bash
-    docker run -p 8000:8000 EXAMEN_FINAL_OCAMPO-backend
-    ```
-    El microservicio estará disponible en `http://localhost:8000`.
+Disponible en: 👉 `http://localhost:8000`
 
-## Ejemplos de Uso de la API
+---
 
-El endpoint principal es `POST /optimizar`.
+## 📡 Ejemplo de Uso de la API
 
-### Request Body (JSON)
+**Endpoint:** `POST /optimizar`
+
+### Request
 
 ```json
 {
@@ -127,7 +127,7 @@ El endpoint principal es `POST /optimizar`.
 }
 ```
 
-### Response Body (JSON)
+### Response
 
 ```json
 {
@@ -137,18 +137,20 @@ El endpoint principal es `POST /optimizar`.
 }
 ```
 
-## Dependencias del Proyecto
+---
+
+## 📦 Tecnologías y Dependencias
 
 ### Backend
 
-*   **FastAPI**: Framework web para construir APIs.
-*   **Uvicorn**: Servidor ASGI para ejecutar aplicaciones FastAPI.
-*   **Pydantic**: Para la validación de datos y la definición de modelos.
-*   **httpx**: Cliente HTTP para pruebas asíncronas.
-*   **pytest**: Framework de pruebas.
+* **FastAPI** → Framework de APIs.
+* **Uvicorn** → Servidor ASGI.
+* **Pydantic** → Validación de modelos.
+* **httpx** → Cliente HTTP.
+* **pytest** → Testing automatizado.
 
 ### Frontend
 
-*   **HTML5**
-*   **CSS3**
-*   **JavaScript (ES6+)**
+* **HTML5**
+* **CSS3**
+* **JavaScript**
