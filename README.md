@@ -5,7 +5,7 @@ Este proyecto implementa un microservicio para optimizar un portafolio de invers
 ## Estructura del Proyecto
 
 ```
-portfolio-optimizer/
+EXAMEN_FINAL_OCAMPO/
 ├── backend/
 │   ├── main.py             # Lógica del microservicio (FastAPI)
 │   ├── requirements.txt    # Dependencias de Python
@@ -37,7 +37,7 @@ El microservicio está construido con FastAPI.
 
 1.  Navega al directorio `backend`:
     ```bash
-    cd portfolio-optimizer/backend
+    cd EXAMEN_FINAL_OCAMPO/backend
     ```
 2.  Crea un entorno virtual (si no lo has hecho ya):
     ```bash
@@ -80,7 +80,7 @@ Para evitar problemas de CORS al abrir `index.html` directamente desde el navega
 
 1.  Navega al directorio `frontend`:
     ```bash
-    cd portfolio-optimizer/frontend
+    cd EXAMEN_FINAL_OCAMPO/frontend
     ```
 2.  Inicia un servidor HTTP simple de Python:
     ```bash
@@ -96,15 +96,15 @@ Si tienes Docker instalado, puedes construir y ejecutar el microservicio en un c
 
 1.  Navega al directorio `backend`:
     ```bash
-    cd portfolio-optimizer/backend
+    cd EXAMEN_FINAL_OCAMPO/backend
     ```
 2.  Construye la imagen Docker:
     ```bash
-    docker build -t portfolio-optimizer-backend .
+    docker build -t EXAMEN_FINAL_OCAMPO-backend .
     ```
 3.  Ejecuta el contenedor Docker:
     ```bash
-    docker run -p 8000:8000 portfolio-optimizer-backend
+    docker run -p 8000:8000 EXAMEN_FINAL_OCAMPO-backend
     ```
     El microservicio estará disponible en `http://localhost:8000`.
 
