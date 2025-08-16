@@ -39,7 +39,7 @@ EXAMEN_FINAL_OCAMPO/
 * **Python 3.9+**
 * **pip** (gestor de paquetes de Python)
 * **Node.js + npm** *(opcional, servidor local frontend)*
-* **Docker** *(opcional, para contenedores)*
+* **Docker** 
 
 ---
 
